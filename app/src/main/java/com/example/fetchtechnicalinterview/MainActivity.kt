@@ -2,18 +2,22 @@ package com.example.fetchtechnicalinterview
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : ComponentActivity() {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ItemAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) //change 2
+
+        recyclerView = findViewById(R.id.rv_FetchList)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val itemList = listOf(Item("Item 1"), Item("Item 2"), Item("Item 3"))
+        adapter = ItemAdapter(itemList)
+        recyclerView.adapter = adapter
+
     }
 }
