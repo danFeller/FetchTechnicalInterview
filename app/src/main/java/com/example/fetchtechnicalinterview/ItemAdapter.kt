@@ -19,8 +19,8 @@ class ItemAdapter(private val itemList: List<Item>): RecyclerView.Adapter<ItemAd
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = itemList[position]
-        if(currentItem.id != 9)
-            holder.textView.text = currentItem.name
+        val info = currentItem.name /* + " \nListId: " + currentItem.listId + "\nId: " + currentItem.id + "\n" */
+        holder.textView.text = info
     }
 
 

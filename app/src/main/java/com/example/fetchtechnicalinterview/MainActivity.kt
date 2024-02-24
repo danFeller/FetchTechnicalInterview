@@ -41,8 +41,16 @@ class MainActivity : ComponentActivity() {
                         for(v in groupings.values) {
                             Log.d("Should be several logs of each list", v.toString())
                         }
+                        val finalList = listOf(Item("------ ListId: 1 -----", 0, 0)) +
+                                        groupings.getValue(1).sortedWith(compareBy({it.listId}, {it.name})) +
+                                        listOf(Item("", 0, 0), Item("------ ListId: 2 -----", 0, 0)) +
+                                        groupings.getValue(2).sortedWith(compareBy({it.listId}, {it.name})) +
+                                        listOf(Item("", 0, 0), Item("------ ListId: 3 -----", 0, 0)) +
+                                        groupings.getValue(3).sortedWith(compareBy({it.listId}, {it.name})) +
+                                        listOf(Item("", 0, 0), Item("------ ListId: 4 -----", 0, 0)) +
+                                        groupings.getValue(4).sortedWith(compareBy({it.listId}, {it.name}))
 
-                        adapter = ItemAdapter(antiNull.sortedBy{it.listId}) //passes the final list into the recycler view to list out each element's name in the layout
+                        adapter = ItemAdapter(finalList) //passes the final list into the recycler view to list out each element's name in the layout
                         recyclerView.adapter = adapter //set our Recycler View to our ItemAdapter object ()
                     }
                 }
@@ -59,4 +67,8 @@ class MainActivity : ComponentActivity() {
 
 
     }
+}
+
+fun <T> concatenate(vararg lists: List<T>): List<T> {
+    return listOf(*lists).flatten()
 }
