@@ -11,7 +11,10 @@
         android:layout_height="wrap_content"
         android:paddingStart="4dp"
         android:paddingEnd="0dp"
-        android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingBottom="8dp"
+        android:textSize="36sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:textAlignment="center"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

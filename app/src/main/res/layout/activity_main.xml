@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:textAlignment="center">
+    android:textAlignment="center"
+    android:background="#cbd5e1">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/rv_FetchList" />
+        android:id="@+id/rv_FetchList"
+        android:paddingTop="60dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

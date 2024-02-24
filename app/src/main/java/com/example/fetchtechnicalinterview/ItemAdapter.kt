@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.compose.runtime.currentRecomposeScope
 import androidx.recyclerview.widget.RecyclerView
 
+//RecyclerView is made from an abstract class with functions that need to be overridden as seen below
 class ItemAdapter(private val itemList: List<Item>): RecyclerView.Adapter<ItemAdapter.MyViewHolder>(){
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var textView: TextView = itemView.findViewById(R.id.itemTextView) // itemTextView holds the layout for an individual item
@@ -19,7 +19,8 @@ class ItemAdapter(private val itemList: List<Item>): RecyclerView.Adapter<ItemAd
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = itemList[position]
-        holder.textView.text = currentItem.name
+        if(currentItem.id != 9)
+            holder.textView.text = currentItem.name
     }
 
 
