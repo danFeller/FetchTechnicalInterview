@@ -17,9 +17,10 @@ class ItemAdapter(private val itemList: List<Item>): RecyclerView.Adapter<ItemAd
         return MyViewHolder(itemView)
     }
 
+    //Probably the most important of the functions. This formats the Item Object and turns it into a text view to be put in the recycler view
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = itemList[position]
-        val info = currentItem.name /* + " \nListId: " + currentItem.listId + "\nId: " + currentItem.id + "\n" */
+        val info = currentItem.name
         holder.textView.text = info
     }
 
